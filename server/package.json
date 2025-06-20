@@ -1,0 +1,28 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "nodemon --watch src --ext ts --exec ts-node src/app.ts",
+		"dev-mcp": "nodemon --watch src --ext ts --exec ts-node src/mcp/app.ts",
+		"build": "tsc",
+		"start": "nodemon dist/app.js",
+		"start-mcp": "node dist/mcp/app.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.12.1",
+	"devDependencies": {
+		"@types/express": "^5.0.3",
+		"nodemon": "^3.1.10",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.8.3"
+	},
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "^1.13.0",
+		"express": "^5.1.0",
+		"zod": "^3.25.67"
+	}
+}
