@@ -61,6 +61,40 @@ const server = new McpServer({
 // );
 
 server.tool(
+	"checkIfDentalAppointmentIsAvailable",
+	{
+		title: "checkIfDentalAppointmentIsAvailable",
+		description: "Check if a dental appointment is available at a given timeslot",
+		inputSchema: {
+			timeslot: z.string(),
+		}
+	},
+	async ({ timeslot }) => {
+		//TODO: call your real booking API
+		return {
+			content: [{ type: "text", text: "Available" }]
+		};
+	}
+);
+
+server.tool(
+	"bookDentalAppointment",
+	{
+		title: "bookDentalAppointment",
+		description: "Book a dental appointment at a given timeslot. First check the availability of the timeslot first.",
+		inputSchema: {
+			timeslot: z.string(),
+		}
+	},
+	async ({ timeslot }) => {
+		//TODO: call your real booking API
+		return {
+			content: [{ type: "text", text: "Booked" }]
+		};
+	}
+);
+
+server.tool(
 	"createCalendarEvent",
 	{
 		title: "createCalendarEvent",
@@ -80,8 +114,6 @@ server.tool(
 		};
 	}
 );
-
-
 
 const main = async () => {
 	const transport = new StdioServerTransport();
